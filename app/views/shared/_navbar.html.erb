@@ -12,6 +12,9 @@
     <div class="collapse navbar-collapse" id="navbar-top">
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
+          <% if current_user.is_admin? %>
+            <li><%= link_to 'Admin', admin_dashboard_path, class: 'btn btn-outline-success' %>
+          <% end %>
           <li><%= link_to "News feed", newsfeed_path, method: :get, class: 'btn btn-outline-success' %></li>
           <li><%= link_to "New post", new_post_path, method: :get, class: 'btn btn-outline-success' %></li>
           <li><%= link_to "My post", posts_path, method: :get, class: 'btn btn-outline-success' %></li>
