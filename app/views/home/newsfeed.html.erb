@@ -1,0 +1,28 @@
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Marketing Icons Section -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    News feed
+                </h1>
+            </div>
+            <%= @posts.each_slice(3) do |a| %>
+                <div class="row">
+                    <% a.each do |post| %>
+                        <div class="col-md-4">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4><i class="fa fa-fw fa-check"></i><%= link_to post.title, post_path(post), class: 'text-primary' %></h4>
+                                </div>
+                                <div class="panel-body">
+                                    <p><%= truncate(post.content, :length => 200) %></p>
+                                </div>
+                            </div>
+                        </div>
+                    <% end %>
+                </div>
+            <% end %>
+        </div>
+    </div>

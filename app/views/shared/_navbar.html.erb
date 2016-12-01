@@ -1,0 +1,26 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-top">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to "Social Network", root_url, class: "navbar-brand" %>
+    </div>
+    <div class="collapse navbar-collapse" id="navbar-top">
+      <ul class="nav navbar-nav navbar-right">
+        <% if user_signed_in? %>
+          <li><%= link_to "News feed", newsfeed_path, method: :get, class: 'btn btn-outline-success' %></li>
+          <li><%= link_to "New post", new_post_path, method: :get, class: 'btn btn-outline-success' %></li>
+          <li><%= link_to "My post", posts_path, method: :get, class: 'btn btn-outline-success' %></li>
+          <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'btn btn-outline-success' %></li>
+        <% else %>
+          <li><%= link_to 'Sign up', new_user_registration_path, class: 'btn btn-outline-success' %></li>
+          <li><%= link_to 'Sign in', user_session_path, class: 'btn btn-outline-success' %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>
