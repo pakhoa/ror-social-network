@@ -19,5 +19,6 @@ class Ability
       can :destroy, Comment do |post|
       	post.try(:user) == user
       end
+    end
   end
 end
